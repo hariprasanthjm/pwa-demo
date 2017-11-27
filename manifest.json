@@ -1,7 +1,7 @@
 {
     "short_name": "Logy",
     "name": "Logy, Logistics Application for Trucks",
-    "start_url": "/",
+    "start_url": "index.html",
 
     "theme_color": "#0e6caa",
     "background_color": "#ffffff",
