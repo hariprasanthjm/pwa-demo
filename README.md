@@ -1,2 +1,2 @@
 # pwa-demo
-PWA application
+PWA application (Angular 5)
