@@ -1,0 +1,138 @@
+$light-blue: #0e83cd;
+$deep-blue: #0e6caa;
+$error-red : #f44336;
+
+.login-topContainer{
+    width: 420px;
+    padding: 70px 50px;
+    position: relative;
+    mat-progress-bar{
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    .titleImage{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: contain;
+        width: 80px;
+        height: 70px;
+        margin: 0 auto;
+    }
+    mat-card-title{
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: #888888;
+    }
+    form{
+        margin-top: 15px;
+        .form-grp{
+            position: relative;
+            .mat-prefix{
+                font-size:20px;
+                margin-right: 5px;
+                color: #adadad;
+            }
+            .form-input{
+                width:100%;
+                font-size: 15px !important;
+            }
+            .error{
+                position: absolute;
+                font-size: 12px;
+                bottom: 0px;
+                left: 24px;
+                color: $error-red;
+            }
+        }
+        .button-row{
+            text-align: center;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            button{
+                border-radius: 18px;
+                width: 60%;
+            }
+        }
+        .loginBtnWrap{
+            padding: 24px 2px;
+            align-items: center;
+            .forgotPassword{
+                font-size:13px;
+                color: $light-blue;
+            }
+            .btnWrap{
+                text-align: right;
+                .loginBtn{
+                    padding: 5px 50px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    mat-card-footer{
+        color:#999999;
+        font-size: 15px;
+        padding: 0 24px;
+        a {
+            text-decoration: none;
+            margin-left: 3px;
+            color: $light-blue;
+            &:hover{
+                border-bottom: 1px solid $light-blue;
+            }
+        }
+    }
+}
+
+.login-wrapper{
+    background: $deep-blue;
+}
+
+.mat-raised-button{
+    color:#ffffff;
+    background: $light-blue;
+}
+
+/deep/ mat-form-field{
+    .mat-form-field-ripple{
+        background: $light-blue;
+    } 
+}
+
+/deep/ mat-form-field.mat-focused{
+    .mat-form-field-placeholder{
+        color: $light-blue;
+    }
+    .mat-form-field-ripple{
+        background: $light-blue;
+    }
+    
+}
+
+/deep/ mat-form-field.mat-form-field-invalid{
+    .mat-form-field-placeholder{
+        color: $error-red;
+    }
+    .mat-form-field-ripple{
+        background: $error-red;
+    }
+}
+
+
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+  @media only screen and (max-width: #{$tablet-width}) {
+    /* For mobile phones: */
+    .login-topContainer{
+        form{
+            .button-row{
+                button{
+                    width:100%;
+                }
+            }
+        }
+    }
+}

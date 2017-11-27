@@ -1,0 +1,130 @@
+$light-blue: #0e83cd;
+$deep-blue: #0e6caa;
+$error-red : #f44336;
+
+mat-form-field{
+    width: 100%;
+    padding: 0 30px;
+}
+mat-card-title{
+    padding-left:30px;
+}
+.booking-card-header{
+    position: relative;
+    .closeBtn{
+        position: absolute;
+        cursor: pointer;
+        right: 30px;
+        top: 0;
+    }
+}
+.mat-raised-button{
+    color:#ffffff;
+    background: $light-blue;
+}
+.submit-btn-1{
+    background: #80a3a9;
+}
+.ic-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .swap-btn{
+        border-radius: 50%;
+        border: 1px solid $light-blue;
+        display: flex;
+        justify-content: center;
+        mat-icon{
+            color: $light-blue;
+        }
+    }
+}
+.booking-subtitle{
+    padding-left:30px;
+    margin: 15px 0 10px 0;
+    color: $deep-blue;
+}
+.toggle-wrapper{
+    margin-top: 15px; 
+    .toggle-text{
+        padding: 0 30px;
+        color: #adadad;
+    }
+}
+.booking-info{
+    display: flex;
+    align-items: center;
+    .toggle-text{
+        padding: 0 10px;
+        color: #adadad;
+    }
+}
+mat-card-actions{
+    padding-right: 60px;
+}
+
+/deep/ mat-form-field{
+    .mat-form-field-ripple{
+        background: $light-blue;
+    } 
+}
+
+/deep/ mat-form-field.mat-focused{
+    .mat-form-field-placeholder{
+        color: $light-blue;
+    }
+    .mat-form-field-ripple{
+        background: $light-blue;
+    }
+    
+}
+
+/deep/ mat-form-field.mat-form-field-invalid{
+    .mat-form-field-placeholder{
+        color: $error-red;
+    }
+    .mat-form-field-ripple{
+        background: $error-red;
+    }
+}
+
+::ng-deep.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar{
+    background-color: rgba(14, 131, 205, 0.68) !important;
+}
+::ng-deep.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb{
+    background-color: $light-blue !important;
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+  @media only screen and (max-width: #{$tablet-width}) {
+    /* For mobile phones: */
+    .closeBtn{
+        border-radius: 50%;
+        background: #cccccc;
+        height: 30px;
+        width: 30px;
+        right: 10px !important;
+        i{
+            color: #ffffff;
+            margin: 3px;
+        }
+    }
+    .swap-btn{
+        transform: rotate(90deg);
+    }
+    .booking-info{
+        .toggle-text{
+            padding: 10px 30px !important;
+        }
+    }
+    mat-card-actions{
+        padding-right: 0px !important;
+        padding-top: 20px;
+        justify-content: center !important;
+    }
+}
+
+@media only screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+}

@@ -1,0 +1,34 @@
+<mat-card class="create-customer-wrapper" fxFlex fxFlexAlign="start">
+    <mat-card-title>Register as New Customer
+      <span class="closeBtn"  (click)="closeEvt()">
+          <i class="material-icons">close</i>
+      </span>
+    </mat-card-title>
+    <form #addNew="ngForm" (ngSubmit)="onSubmit(addNew)" fxLayout="column" fxLayoutWrap fxLayoutGap="15px">
+        <mat-form-field class="example-full-width" >
+            <input matInput name="customer_name" [(ngModel)]="createCustomer.customer_name" placeholder="Customer Name" required #customer_name="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <textarea matInput name="customer_address" placeholder="Customer Address" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" required [(ngModel)]="createCustomer.customer_address" #customer_address="ngModel"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" >
+            <input matInput name="customer_email" type="text" placeholder="Customer Email Address" required [(ngModel)]="createCustomer.customer_email" #customer_email="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" >
+            <input matInput name="customer_mobile_no" placeholder="Customer Mobile Number" required [(ngModel)]="createCustomer.customer_mobile_no" #customer_mobile_no="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" >
+            <input matInput name="customer_password" type="password" placeholder="Enter New Password" required [(ngModel)]="createCustomer.customer_password" #customer_password="ngModel">
+        </mat-form-field>
+
+        <mat-card-actions class="material-btn-grp" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+            <button mat-raised-button class="submit-btn" [disabled]='!addNew.valid'>SignUp</button>
+        </mat-card-actions>
+        
+    </form>
+</mat-card>

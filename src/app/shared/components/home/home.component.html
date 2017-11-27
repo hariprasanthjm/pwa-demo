@@ -1,0 +1,12 @@
+<div class="appHeader">
+  <app-premiere-header></app-premiere-header>
+</div>
+<div fxLayout="row" class="pre-container">
+  <div fxFlex="12" fxFlex.sm="8" fxFlex.md="8" fxHide.xs class="pre-sidenav">
+    <app-navigation></app-navigation>
+  </div>
+  <div fxFlex="88" fxFlex.sm="92" fxFlex.md="92" fxFlex.xs="100" class="pre-content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="bottom-nav" fxHide.sm  fxHide.md fxHide.lg fxHide.xl><app-navigation></app-navigation></div>
+</div>

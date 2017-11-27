@@ -1,0 +1,85 @@
+.create-customer-wrapper{
+    mat-card-title{
+        padding-left:40px;
+        position: relative;
+        .closeBtn{
+            position:absolute;
+            right:15px;
+            cursor: pointer;
+        }
+    }
+    form{
+        padding: 20px 50px;
+        .example-full-width{
+            font-size:14px;
+            margin-right:0px;
+            margin-bottom: 10px;
+            width:100%;
+        }
+        .material-radio-grp{
+            label{
+                font-size: 14px;
+            }
+            mat-radio-group{
+                mat-radio-button{
+                    font-size: 13px;
+                }
+            }
+        }
+        .material-btn-grp {
+            width:100%;
+            padding-top: 30px;
+            .reset-btn {
+                background: rgba(0, 0, 0, 0.12);
+                color: rgba(0,0,0,.38);
+            }
+            .submit-btn{
+                width: 18%;
+                padding: 5px 0;
+            }
+        }
+    }
+}
+
+.mat-raised-button{
+    color:#ffffff;
+    background: #0e83cd;
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+  @media only screen and (max-width: #{$tablet-width}) {
+    /* For mobile phones: */
+    .closeBtn{
+        border-radius: 50%;
+        background: #cccccc;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        i{
+            color: #ffffff;
+            margin: 3px;
+        }
+    }
+    .mat-card-title{
+        font-size: 22px;
+        padding-left: 20px !important;
+    }
+    form{
+        padding: 10px 20px !important;
+    }
+    .submit-btn{
+        width: 100% !important;
+        padding: 2px 0 !important;
+    }
+    mat-card{
+        padding: 26px 16px 0px 16px !important; 
+    }
+    .material-btn-grp {
+        padding: 0px !important;
+    }
+}
+
+@media only screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+}

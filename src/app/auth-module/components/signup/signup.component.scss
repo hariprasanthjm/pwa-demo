@@ -1,0 +1,144 @@
+$light-blue: #0e83cd;
+$deep-blue: #0e6caa;
+$error-red : #f44336;
+$shallow-grey: #e1e1e6;
+.signup-container{
+    background: $deep-blue;
+}
+
+.register-wrapper{
+    width:768px;
+    padding: 10px 35px 25px 35px;
+    background: $shallow-grey;
+    height: 100%;
+    position: relative;
+    mat-card-title{
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: #888888;
+        font-size: 24px;
+        position:absolute;
+        top: 35px;
+    }
+    mat-card-footer{
+        position: absolute;
+        bottom: 12%;
+    }
+    .register-panel{
+        .register-grid{
+            .avatar-card{
+                width: 280px;
+                position:relative;
+                background: #ffffff;
+                padding: 36px;
+                -webkit-transition: all 200ms ease-in;
+                -webkit-transform: scale(1); 
+                -ms-transition: all 200ms ease-in;
+                -ms-transform: scale(1); 
+                -moz-transition: all 200ms ease-in;
+                -moz-transform: scale(1);
+                transition: all 200ms ease-in;
+                transform: scale(1);
+                cursor: pointer;
+                .avatar-image{
+                    background-repeat: no-repeat;
+                    background-position: 50%;
+                    background-size: contain;
+                    width: 100px;
+                    height: 150px;
+                    margin: 0 auto;
+                }
+                .avatar-text{
+                    text-align: center;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #888888;
+                }
+                .avatar-btn{
+                    display: none;
+                    position: absolute;
+                    bottom: -12px;
+                    right: -9px;
+                    color: #ffffff;
+                    font-weight: 600;
+                    background: #0e6caa;
+                }
+                &:hover{
+                    -webkit-transition: all 200ms ease-in;
+                    -webkit-transform: scale(1.05);
+                    -ms-transition: all 200ms ease-in;
+                    -ms-transform: scale(1.05);   
+                    -moz-transition: all 200ms ease-in;
+                    -moz-transform: scale(1.05);
+                    transition: all 200ms ease-in;
+                    transform: scale(1.05);
+                    .avatar-btn{
+                        display:block;
+                    }
+                }
+            }
+        }
+    }
+}
+.signup-inline-container{
+    width:960px;
+}
+
+
+/deep/ mat-form-field{
+    .mat-form-field-ripple{
+        background: $light-blue;
+    } 
+}
+
+/deep/ mat-form-field.mat-focused{
+    .mat-form-field-placeholder{
+        color: $light-blue;
+    }
+    .mat-form-field-ripple{
+        background: $light-blue;
+    }
+    
+}
+
+/deep/ mat-form-field.mat-form-field-invalid{
+    .mat-form-field-placeholder{
+        color: $error-red;
+    }
+    .mat-form-field-ripple{
+        background: $error-red;
+    }
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+  @media only screen and (max-width: #{$tablet-width}) {
+    /* For mobile phones: */
+    .signup-topContainer{
+        .register-wrapper{
+            width:100%;
+        }
+    }
+    .signup-inline-container{
+        width:100%;
+    }
+    mat-card-title{
+        margin-top: 30px !important;
+    }
+    .register-panel{
+        .avatar-card{
+            padding: 10px !important;
+            width: 240px !important;
+        }
+    }
+}
+
+@media only screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+    .register-wrapper{
+        width:700px;
+    }
+    .signup-inline-container{
+        width:700px;
+    }
+}

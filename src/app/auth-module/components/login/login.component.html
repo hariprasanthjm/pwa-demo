@@ -1,0 +1,40 @@
+<div class="login-wrapper" fxFill fxLayoutAlign="center center">
+  <mat-card class="login-topContainer">
+      <mat-progress-bar *ngIf="signinLoader" class="example-margin" [color]="'warn'" [mode]="'indeterminate'"></mat-progress-bar>
+    <!-- <div  class="titleImage" [ngStyle]="{'background-image': 'url(/assets/images/tracking-icon.svg)'}"></div> -->
+    <mat-card-title>Sign In to Logy</mat-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-grp"> 
+        <mat-form-field class="form-input">
+          <mat-icon matPrefix class="mat-prefix">phone</mat-icon>
+          <input matInput placeholder="Mobile Number*" type="text" name="mobile_number" id="mobile_number" [formControl]="mobile_number">
+        </mat-form-field>
+        <div class="error" [hidden]="mobile_number.valid || mobile_number.untouched">
+          <div [hidden]="!mobile_number.hasError('required')">
+            Mobile No. is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-grp">
+        <mat-form-field class="form-input">
+          <mat-icon matPrefix class="mat-prefix">lock</mat-icon>
+          <input matInput placeholder="Password*" type="password" name="password" id="password" [formControl]="password">
+        </mat-form-field>
+        <div class="error" [hidden]="password.valid || password.untouched">
+          <div [hidden]="!password.hasError('required')">
+            The password is required.
+          </div>
+        </div>
+      </div>
+      <div fxLayout='row' class="loginBtnWrap">
+        <span fxFlex="50" class="forgotPassword">Forgot Password?</span>
+        <div class="btnWrap" fxFlex="50">
+          <button mat-raised-button type="submit" class="loginBtn" [disabled]="!loginForm.valid">Sign In</button>
+        </div>
+      </div>
+    </form>
+    <mat-card-footer>Don't have an account yet?
+      <a routerLink="/auth/register">Register</a>
+    </mat-card-footer>
+  </mat-card>
+</div>

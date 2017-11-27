@@ -1,0 +1,35 @@
+.add-vehicle-wrapper{
+    mat-card-title{
+        padding-left:40px;
+    }
+    form{
+        padding: 20px 0 0 40px;
+        .example-full-width{
+            font-size:14px;
+            margin-right:0px;
+            margin-bottom: 10px;
+        }
+        .material-radio-grp{
+            label{
+                font-size: 14px;
+            }
+            mat-radio-group{
+                mat-radio-button{
+                    font-size: 13px;
+                }
+            }
+        }
+        .material-btn-grp {
+            width:100%;
+            padding-top: 30px;
+            .reset-btn {
+                background: rgba(0, 0, 0, 0.12);
+                color: rgba(0,0,0,.38);
+            }
+            .submit-btn{
+                width: 13%;
+                margin-right: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<div class="signup-container" fxFill fxLayoutAlign="center center">
+    <mat-card class="register-wrapper" fxLayoutAlign="center center" *ngIf='displayRegisterScreen'>
+        <mat-card-title>SignUp in Logy</mat-card-title>
+        <div fxLayout='row' fxLayout.xs='column' fxLayoutAlign="center"  fxLayoutGap.xs="10%" fxLayoutGap="15%" class="register-panel">
+            <div fxFlex="50" class="register-grid">
+              <div class="avatar-card" (click)="chooseRole('customer')">
+                <div class="avatar-image" [ngStyle]="{'background-image': 'url(assets/images/customer_2.png)'}"></div>
+                <div class="avatar-text">Register as Customer</div>
+                <button mat-mini-fab class="avatar-btn"><mat-icon>done</mat-icon></button>
+              </div>
+            </div>
+            <div fxFlex="50" class="register-grid">
+                <div class="avatar-card" (click)="chooseRole('transporter')">
+                    <div  class="avatar-image" [ngStyle]="{'background-image': 'url(assets/images/transports-01.png)'}"></div>
+                  <div class="avatar-text">Register as Transporter</div>
+                  <button mat-mini-fab class="avatar-btn"><mat-icon>done</mat-icon></button>
+                </div>
+            </div>
+        </div>
+        <mat-card-footer>Already have an account ? <a routerLink="/auth/login">Login</a></mat-card-footer>
+    </mat-card>
+    <div *ngIf='displayCustomerRegistration' class="signup-inline-container">
+      <app-customer-registration (closeCustomerReg)="closeEvent($event)" (submitCustomerReg)="submitReg($event,'customer')" ></app-customer-registration>
+    </div>
+    <div *ngIf='displayTransporterRegistration' class="signup-inline-container">
+        <app-transporter-registration (closeTransporterReg)="closeEvent($event)" (submitTransporterReg)="submitReg($event,'transporter')"></app-transporter-registration>
+    </div>
+</div>

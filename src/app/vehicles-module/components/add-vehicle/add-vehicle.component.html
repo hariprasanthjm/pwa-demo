@@ -1,0 +1,58 @@
+<mat-card class="add-vehicle-wrapper" fxFlex fxFlexAlign="start">
+    <mat-card-title style="position:relative;">Add New Vehicle
+      <span style="position:absolute;right:15px;cursor: pointer;" (click)="closeVehicleScreen()">
+          <i class="material-icons">close</i>
+      </span>
+    </mat-card-title>
+    <form #addNew="ngForm" (ngSubmit)="onSubmit(addNew)" fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="40px">
+        <mat-form-field class="example-full-width" fxFlex="calc(100% - 40px)">
+            <input matInput name="registration_number" [(ngModel)]="addVehicle.registration_number" placeholder="Vehicle Registration Number" required #registration_number="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="engine_number" placeholder="Vehicle Engine Number" required [(ngModel)]="addVehicle.engine_number" #engine_number="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="engine_chasis_number" placeholder="Vehicle Chasis Number" required [(ngModel)]="addVehicle.engine_chasis_number" #engine_chasis_number="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="vehicle_model" placeholder="Vehicle Model Name" required [(ngModel)]="addVehicle.vehicle_model" #vehicle_model="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="vehicleYear" type="number" placeholder="Vehicle Year" required [(ngModel)]="addVehicle.vehicle_year" #vehicle_year="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="vehicle_tonnage" type="number" placeholder="Vehicle Tonnage" required [(ngModel)]="addVehicle.vehicle_tonnage" #vehicleTonnage="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="fc_expiry_date" required [matDatepicker]="fc_expiry_date" [(ngModel)]="addVehicle.fc_expiry_date" placeholder="FC Expiry Date">
+            <mat-datepicker-toggle matSuffix [for]="fc_expiry_date"></mat-datepicker-toggle>
+            <mat-datepicker #fc_expiry_date></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="fc_expiry_date" required [matDatepicker]="insurance_expiry_date" [(ngModel)]="addVehicle.insurance_expiry_date" placeholder="Insurance Expiry Date">
+            <mat-datepicker-toggle matSuffix [for]="insurance_expiry_date"></mat-datepicker-toggle>
+            <mat-datepicker #insurance_expiry_date></mat-datepicker>
+        </mat-form-field>
+
+        <section class="material-radio-grp" fxFlex="calc(100% - 40px)">
+            <label class="example-margin">Vehcile Documents:</label>
+            <mat-radio-group [(ngModel)]="addVehicle.vehicle_docs" name="vehicle_docs" #vehicle_docs="ngModel">
+              <mat-radio-button class="example-margin" value="true">Available</mat-radio-button>
+              <mat-radio-button class="example-margin" value="false">Not Available</mat-radio-button>
+            </mat-radio-group>
+        </section>
+        
+        <mat-card-actions class="material-btn-grp" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+            <button mat-button class="reset-btn" (click)="onReset(addNew)">Reset</button>
+            <button mat-raised-button class="submit-btn" color="primary" [disabled]='!addNew.valid'>Submit</button>
+        </mat-card-actions>
+        
+    </form>
+</mat-card>

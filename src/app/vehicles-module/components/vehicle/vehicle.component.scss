@@ -1,0 +1,97 @@
+.vehicle-create-container{
+    margin: 50px auto;
+    width: 960px;
+}
+.vehicle-container{
+    margin: 50px auto;
+    width: 960px;
+}
+.tab-wrap{
+    // background: #ffffff;
+    /deep/ mat-tab-group{
+        .mat-tab-header{
+            background: #ffffff;
+        }
+        .mat-tab-label-active{
+            color: #0e6caa;
+            font-weight: 600;
+        }
+        mat-ink-bar{
+            background-color: #0e6caa !important;
+            height: 3px;
+        }
+    }
+}
+.vehicle-card-wrapper{
+    .vehicles-card-header{
+        border-bottom: 1px solid #cccccc;
+        span:first-child{
+            border-right: 2px solid #cccccc;
+            padding: 0px 10px;
+        }
+    }
+    .vehicle-card-content{
+        padding-top: 20px;
+        span{
+            i{
+                font-size: 30px;
+                color: #0e83cd;
+            }
+        }
+        .vehicle-card-no{
+            display: flex;
+            color: #4e4c4c;
+            background: #f6c125;
+            border-radius: 4px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+            box-shadow: -1px 1px 1px 0px #8a8a8a;
+            font-size: 14px;
+        }
+    }
+}
+.addVehicle-icon{
+    font-size: 14px;
+    color: #0e83cd;
+    cursor: pointer;
+    border: 1px solid #999999;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    i{
+        vertical-align: middle;
+    }
+    &:hover{
+        background: rgba(64, 143, 193, 0.08);
+    }
+}
+
+.vehicle-detail-wrapper{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 45px;
+    align-self: flex-start;
+}
+
+@media only screen and (max-width: 767px) {
+    .vehicle-create-container{
+        margin: 0;
+        width: 100%;
+    }
+    .vehicle-container{
+        width: 85%;
+        margin:30px auto;
+    }
+    .vehicle-detail-wrapper{
+        position: relative;
+        top: 0;
+        align-self: auto;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .vehicle-create-container{
+        margin: 50px auto;
+        width: 700px;
+    }
+  }

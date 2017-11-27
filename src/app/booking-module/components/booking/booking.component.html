@@ -1,0 +1,42 @@
+<div class="booking-container">
+  <span *ngIf="addNewBooking">
+    <app-new-booking (closeBooking)="addNewBooking = !$event" (submitBooking)="receivedEvt($event)"></app-new-booking>
+  </span>
+  <div class="booking-wrapper" *ngIf="!addNewBooking">
+    <div fxLayout='row' fxLayoutGap="30px" fxLayoutGap.xs="30px" class="booking-title">
+      <span class="header-text" [ngClass]="{'active': activeBooking}" (click)="selectBooking('active')"><i class="material-icons" style="color:green;">fiber_manual_record</i> Active</span>
+      <span class="header-text" [ngClass]="{'active': pastBooking}" (click)="selectBooking('completed')"><i class="material-icons" style="color: #f1714c;">fiber_manual_record</i> Past</span>
+      <span class="header-text" [ngClass]="{'active': savedBooking}" (click)="selectBooking('saved')"><i class="material-icons" style="font-size: 22px; vertical-align: bottom;">history</i>Saved</span>
+      <span class="add-booking" (click)="addNewBooking = !addNewBooking"><i class="material-icons" style="font-size: 22px; vertical-align: bottom;">add_circle_outline</i><span fxHide.xs> New Booking</span></span>
+    </div>
+    <div class="card-container" fxLayout='column' fxLayoutGap="20px"> 
+      <mat-card *ngFor="let booking of filteredBookingData">
+        <div class="booking-card">
+          <div class="booking-card-header">Booking ID: <b>Logy {{booking.booking_id}} </b></div>
+          <div class="booking-inline-card" fxLayout='column' fxLayoutGap ="25px">
+            <div class="vert-line"></div>
+            <mat-card-subtitle><i class="material-icons" style="color:rgb(224, 96, 96);">fiber_manual_record</i> {{booking.pickup_location_details}}</mat-card-subtitle>
+            <mat-card-subtitle><i class="material-icons" style="color:rgb(71, 73, 223);">fiber_manual_record</i> {{booking.drop_location_details}}</mat-card-subtitle>
+          </div>
+          <span><mat-card-subtitle class="booking-sub">Delivery Status: </mat-card-subtitle> {{booking.delivery_status}}</span>
+        </div>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              More Details
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout='column' fxLayoutGap ="15px">
+              <span><mat-card-subtitle class="booking-sub">Transit Insurance: </mat-card-subtitle> {{booking.transit_insurance === true ? 'Yes' : 'No'}}</span>
+              <span><mat-card-subtitle class="booking-sub">GPS Tracking: </mat-card-subtitle> {{booking.gps_tracking === true ? 'Yes' : 'No'}}</span>
+            <span><mat-card-subtitle class="booking-sub">Pickup Location Contact No.: </mat-card-subtitle> {{booking.pickup_location_contact}}</span>
+            <span><mat-card-subtitle class="booking-sub">Drop Location Contact No.: </mat-card-subtitle> {{booking.drop_location_contact}}</span>
+            <span><mat-card-subtitle class="booking-sub">Scheduled Date: </mat-card-subtitle> {{booking.scheduled_date}}</span>
+            <span><mat-card-subtitle class="booking-sub">Goods Type: </mat-card-subtitle> {{booking.vehicle_goods}}</span>
+          </div>
+        </mat-expansion-panel>
+      </mat-card>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.appHeader{
+    position: fixed;
+    display: block;
+    width:100%;
+}
+.pre-container{
+    padding-top: 45px;
+    height: 100%;
+    .appLogo{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: contain;
+        width: 100%;
+        height: 45px;
+        background-color: #38464f;
+    }
+    .pre-sidenav{
+        background: #0e83cd;
+        height: 100%;
+        flex-grow: 1;
+        flex-shrink: 0 !important;
+    }
+    .pre-content{
+        background:#e1e1e6;
+        overflow: auto;
+    }
+    .bottom-nav{
+        position: fixed;
+        bottom: 0px;
+        background: #0e83cd;
+        width: 100%;
+        height: 52px;
+        z-index: 666;
+        display: block;
+    }
+}

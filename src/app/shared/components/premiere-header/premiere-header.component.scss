@@ -1,0 +1,15 @@
+.headerTopLayer{
+    height: 45px;
+    padding: 0 10px;
+    background: #0E6CAA;
+    color: #ffffff;
+    .nav-groups{
+        display:flex;
+        align-items: center;
+        margin-right: 20px;
+        .nav-buttons{
+            cursor: pointer;
+            padding-right: 5px;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@font-face {
+    font-family: "RobotoRegular";
+    src: url("/assets/fonts/Roboto-Regular.ttf") format("truetype");
+   }
+
+   @font-face {
+    font-family: "MyriadPro";
+    src: url("/assets/fonts/Myriad-Pro_31655.ttf") format("truetype");
+   }
+   @font-face {
+    font-family: "MyriadProLight";
+    src: url("/assets/fonts/Myriad-Pro-Light_31642.ttf") format("truetype");
+   }
+
+html,body{
+    margin:0;
+    padding:0;
+    height: 100%;
+}
+*{
+    box-sizing: border-box;
+    font-family: MyriadPro;
+}
+
+.loading {
+    opacity: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #0e6caa;
+    padding-top: 25vh;
+    text-align: center;
+    z-index: -1;
+    transition: opacity .8s ease-out;
+}
+
+app-root:empty + .loading {
+  opacity: 1;
+  z-index: 100;
+  h1 {
+    font-family: "courier", monospace;
+    color: #EEE;
+    margin-bottom: 50px;
+  }
+}

@@ -1,0 +1,101 @@
+.booking-container{
+    margin: 50px auto;
+    width: 960px;
+}
+.booking-title{
+    position: relative;
+    .header-text{
+        color: #888888;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        padding-bottom: 5px;
+        i{
+            font-size: 10px;
+        }
+    }
+    .active{
+        color: #0e6caa;
+        border-bottom: 3px solid #0e6caa;
+    }
+    .add-booking{
+        position: absolute;
+        right: 60px;
+        border-radius: 22px;
+        border: 1px solid #0e6caa;
+        color: #0e6caa;
+        padding: 4px 12px;
+        line-height: 22px;
+        cursor: pointer;
+    }
+}
+.card-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    mat-card{
+        padding: 10px 0 0 0;
+    }
+}
+.booking-sub{
+    display: inline;
+    padding-left: 20px;
+    padding-right: 10px; 
+}
+mat-expansion-panel-header{
+    background: #dddddd;
+}
+.booking-card{
+    margin-bottom: 15px;
+    .booking-card-header{
+        color: #999999;
+        font-size: 16px;
+        padding: 5px;
+        border-bottom: 1px solid #cccccc;
+        b{
+            color:#0e6caa;
+            margin-left: 8px;
+            font-size:17px;
+        }
+    }
+    .booking-inline-card{
+        margin-bottom: 5px;
+        padding: 15px 15px 0 15px;
+        position: relative;
+        .vert-line{
+            position: absolute;
+            border-left: 2px dotted #888888;
+            height: 30px;
+            left: 22px;
+            top: 25px;
+            z-index: 0;
+        }
+        mat-card-subtitle{
+            i{
+                font-size: 15px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+  @media only screen and (max-width: #{$tablet-width}) {
+    /* For mobile phones: */
+    .booking-container{
+        width: 100%;
+    }
+    .add-booking{
+        right: 4px !important;
+        top: -4px;
+    }
+    .booking-title{
+        padding: 0 10px;
+    }
+    
+}
+
+@media only screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+}

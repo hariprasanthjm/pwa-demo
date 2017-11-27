@@ -1,0 +1,129 @@
+<mat-card>
+  <div class="booking-card-header">
+  <mat-card-title>New Trip Booking</mat-card-title>
+  <span class="closeBtn" (click)="closeBooking.emit(true)">
+      <i class="material-icons">close</i>
+  </span>
+  </div>
+  <mat-card-content>
+    <div class="booking-wrapper">
+      <form fxLayout="column" fxLayoutWrap novalidate>
+
+        <mat-card-subtitle class="booking-subtitle">Destination Details</mat-card-subtitle>
+        <div fxLayout='row' fxLayout.xs='column'>
+          <div fxFlex="40">
+            <mat-form-field class="example-full-width">
+              <input type="text" placeholder="Pickup Location*" matInput [formControl]="pickupLocation" [matAutocomplete]="pickup">
+              <mat-autocomplete #pickup="matAutocomplete">
+                <mat-option *ngFor="let option of filteredCitiesPickup | async" [value]="option.place_name">
+                  {{ option.place_name }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+          <div fxFlex="10" class="ic-button">
+            <button mat-icon-button class="swap-btn" (click)="switchValues()">
+              <mat-icon aria-label="Swap values">compare_arrows</mat-icon>
+            </button>
+          </div>
+          <div fxFlex="40">
+            <mat-form-field class="example-full-width">
+              <input type="text" placeholder="Drop Location*" matInput [formControl]="dropLocation" [matAutocomplete]="drop">
+              <mat-autocomplete #drop="matAutocomplete">
+                <mat-option *ngFor="let option of filteredCitiesDrop | async" [value]="option.place_name">
+                  {{ option.place_name }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-card-subtitle class="booking-subtitle">Contact Details</mat-card-subtitle>
+        <div fxLayout='row' fxLayout.xs='column'>
+          <mat-form-field class="example-full-width" fxFlex="40">
+            <input matInput name="pickup_location_contact" placeholder="Pickup Location Contact Number" maxlength="10" minlength="10"
+              pattern="[0-9]+" [(ngModel)]="new_bookings.pickup_location_contact" #pickup_loc_contact="ngModel" required>
+          </mat-form-field>
+          <div fxFlex="10"></div>
+          <mat-form-field class="example-full-width" fxFlex="40">
+            <input matInput name="drop_location_contact" placeholder="Drop Location Contact Number" maxlength="10" minlength="10" pattern="[0-9]+"
+              [(ngModel)]="new_bookings.drop_location_contact" #drop_loc_contact="ngModel" required>
+          </mat-form-field>
+        </div>
+
+        <mat-card-subtitle class="booking-subtitle">Schedule Details</mat-card-subtitle>
+        <div fxLayout='row' fxLayout.xs='column'>
+          <mat-form-field class="example-full-width" fxFlex="30">
+            <input matInput name="scheduled_date" required [matDatepicker]="schd_date" [min]="minDate" [(ngModel)]="new_bookings.scheduled_date"
+              placeholder="Scheduled Date" required>
+            <mat-datepicker-toggle matSuffix [for]="schd_date"></mat-datepicker-toggle>
+            <mat-datepicker #schd_date></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout='row' fxLayout.xs='column'>
+          <div class="toggle-wrapper">
+            <span class="toggle-text">Transit Insurance: </span>
+            <mat-slide-toggle class="example-margin" name="transit_insurance" [color]="'accent'" [(ngModel)]="new_bookings.transit_insurance"
+              required #transit="ngModel">
+            </mat-slide-toggle>
+          </div>
+        </div>
+
+        <div fxLayout='row' fxLayout.xs='column'>
+          <div class="toggle-wrapper">
+            <span class="toggle-text">GPS Tracking</span>
+            <mat-slide-toggle class="example-margin" name="gps_tracking" [color]="'accent'" [(ngModel)]="new_bookings.gps_tracking" required
+              #gps="ngModel">
+            </mat-slide-toggle>
+          </div>
+        </div>
+
+        <mat-card-subtitle class="booking-subtitle">Vehicle Details</mat-card-subtitle>
+        <div fxLayout='row' fxLayout.xs='column'>
+          <div fxFlex="35">
+            <mat-form-field>
+              <mat-select placeholder="Vehicle Types" (change)="vehicleTypeChanged(new_bookings.vehicle_type)" [(ngModel)]="new_bookings.vehicle_type"
+                name="vehicle_type" #veh_type="ngModel" required>
+                <mat-option *ngFor="let option of vehicleFeeds" [value]="option.name">
+                  {{option.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div fxFlex="30" class="booking-info">
+            <span class="toggle-text">Vehicle Size: </span>{{new_bookings.vehicle_size}}</div>
+          <div fxFlex="30" class="booking-info">
+            <span class="toggle-text">Vehicle Tonnage(MT): </span>{{new_bookings.vehicle_tonnage}}</div>
+        </div>
+
+        <mat-card-subtitle class="booking-subtitle">Goods Details</mat-card-subtitle>
+        <div fxLayout='row' fxLayout.xs='column'>
+          <div fxFlex="35">
+            <mat-form-field>
+              <mat-select placeholder="Vehicle Goods Type" [(ngModel)]="new_bookings.vehicle_goods" name="vehicle_goods" #goods="ngModel"
+                required>
+                <mat-option *ngFor="let option of vehicleGoods" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-card-actions class="material-btn-grp" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+            <button mat-raised-button class="submit-btn-1" [disabled]="!pickupLocation.valid || !dropLocation.valid || pickupLocation.value === dropLocation.value || !pickup_loc_contact.valid || 
+            !drop_loc_contact.valid || new_bookings.scheduled_date === '' || !veh_type.valid || !goods.valid"
+            (click)="saveLater(pickupLocation.value,dropLocation.value,pickup_loc_contact.value,drop_loc_contact.value,new_bookings.scheduled_date
+            ,new_bookings.transit_insurance,new_bookings.gps_tracking,new_bookings.vehicle_type,new_bookings.vehicle_size,new_bookings.vehicle_tonnage,new_bookings.vehicle_goods)">Book Later <i class="material-icons">history</i></button>
+
+          <button mat-raised-button class="submit-btn" [disabled]="!pickupLocation.valid || !dropLocation.valid || pickupLocation.value === dropLocation.value || !pickup_loc_contact.valid || 
+            !drop_loc_contact.valid || new_bookings.scheduled_date === '' || !veh_type.valid || !goods.valid"
+            (click)="onSubmit(pickupLocation.value,dropLocation.value,pickup_loc_contact.value,drop_loc_contact.value,new_bookings.scheduled_date
+            ,new_bookings.transit_insurance,new_bookings.gps_tracking,new_bookings.vehicle_type,new_bookings.vehicle_size,new_bookings.vehicle_tonnage,new_bookings.vehicle_goods)">Confirm Booking <i class="material-icons">offline_pin</i></button>
+        </mat-card-actions>
+      </form>
+
+    </div>
+  </mat-card-content>
+</mat-card>
