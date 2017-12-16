@@ -31,11 +31,6 @@
         "type": "image/png"
       },
       {
-        "src": "assets/fav_icons/delivery-truck_152x152.png",
-        "sizes": "152x152",
-        "type": "image/png"
-      },
-      {
         "src": "assets/fav_icons/delivery-truck_192x192.png",
         "sizes": "192x192",
         "type": "image/png"
@@ -46,9 +41,10 @@
         "type": "image/png"
       },
       {
-        "src": "/assets/fav_icons/delivery-truck_512x512.png",
+        "src": "assets/fav_icons/delivery-truck_512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       }
-    ]
+    ],
+    "start_url": "index.html"
   }
