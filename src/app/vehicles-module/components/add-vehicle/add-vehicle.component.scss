@@ -1,36 +1,49 @@
-.add-vehicle-wrapper{
-    margin-bottom:30px;
-    mat-card-title{
-        padding-left:40px;
+.add-vehicle-wrapper {
+    margin-bottom: 30px;
+    mat-card-title {
+        padding-left: 40px;
     }
-    form{
+    form {
         padding: 20px 0 0 40px;
-        .example-full-width{
-            font-size:14px;
-            margin-right:0px;
+        .example-full-width {
+            font-size: 14px;
+            margin-right: 0px;
             margin-bottom: 10px;
         }
-        .material-radio-grp{
-            label{
+        .material-radio-grp {
+            label {
                 font-size: 14px;
             }
-            mat-radio-group{
-                mat-radio-button{
+            mat-radio-group {
+                mat-radio-button {
                     font-size: 13px;
                 }
             }
         }
         .material-btn-grp {
-            width:100%;
+            width: 100%;
             padding-top: 30px;
             .reset-btn {
                 background: rgba(0, 0, 0, 0.12);
-                color: rgba(0,0,0,.38);
+                color: rgba(0, 0, 0, .38);
             }
-            .submit-btn{
+            .submit-btn {
                 width: 13%;
                 margin-right: 40px;
             }
+        }
+    }
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+@media only screen and (max-width: #{$tablet-width}) {
+    .add-vehicle-wrapper {
+        mat-card-title {
+            padding-left: 2px !important;
+        }
+        form {
+            padding: 0 2px !important;
         }
     }
 }

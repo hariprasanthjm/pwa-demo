@@ -100,6 +100,9 @@ $desktop-width: 1024px;
 
   @media only screen and (max-width: #{$tablet-width}) {
     /* For mobile phones: */
+    mat-card{
+        padding: 20px 0px !important;
+    }
     .closeBtn{
         border-radius: 50%;
         background: #cccccc;

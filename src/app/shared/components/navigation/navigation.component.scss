@@ -26,13 +26,22 @@
 } */
 .nav-item.active{
     background: #0966a1;
+    .nav-link{
+        button{
+            mat-icon{
+                color: #fe9600;
+            }
+        }
+    }
+    .nav-text{
+        color: #fe9600;
+    }
 }
 
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
-  @media only screen and (max-width: #{$tablet-width}) {
-    /* For mobile phones: */
+  /* @media only screen and (max-width: #{$tablet-width}) {
     .navbar{
         margin-top: -1px !important;
         text-align: center;
@@ -70,4 +79,4 @@ $desktop-width: 1024px;
             }
         }
     }
-}
+} */

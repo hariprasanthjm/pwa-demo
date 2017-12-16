@@ -8,5 +8,8 @@
   <div fxFlex="88" fxFlex.sm="92" fxFlex.md="92" fxFlex.xs="100" class="pre-content">
     <router-outlet></router-outlet>
   </div>
-  <div class="bottom-nav" fxHide.sm  fxHide.md fxHide.lg fxHide.xl><app-navigation></app-navigation></div>
+  <!-- <div class="bottom-nav" fxHide.sm  fxHide.md fxHide.lg fxHide.xl><app-navigation></app-navigation></div> -->
+    <span class="mobile-hambutton" (click)="menuState = 'in'" fxHide.sm  fxHide.md fxHide.lg fxHide.xl><i class="material-icons">menu</i></span>
+    <div class="transparent-layer" (click)="menuState = 'out'" *ngIf="menuState === 'in'? true: false" fxHide.sm  fxHide.md fxHide.lg fxHide.xl></div>
+    <div [@slideInOut]="menuState" class="mobile-sideNav" fxHide.sm  fxHide.md fxHide.lg fxHide.xl><app-navigation></app-navigation></div>
 </div>
