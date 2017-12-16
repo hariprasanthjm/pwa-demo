@@ -1,5 +1,7 @@
-<app-new-booking *ngIf="addNewBooking" (closeBooking)="addNewBooking = !$event" (submitBooking)="receivedEvt($event)"></app-new-booking>
 <div class="booking-container">
+  <span *ngIf="addNewBooking">
+    <app-new-booking (closeBooking)="addNewBooking = !$event" (submitBooking)="receivedEvt($event)"></app-new-booking>
+  </span>
   <div class="booking-wrapper" *ngIf="!addNewBooking">
     <div fxLayout='row' fxLayoutGap="30px" fxLayoutGap.xs="30px" class="booking-title">
       <span class="header-text" [ngClass]="{'active': activeBooking}" (click)="selectBooking('active')"><i class="material-icons" style="color:green;">fiber_manual_record</i> Active</span>
