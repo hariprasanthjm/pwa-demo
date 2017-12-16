@@ -62,12 +62,21 @@
         </div>
 
         <div fxLayout='row' fxLayout.xs='column'>
-          <div class="toggle-wrapper">
+          <div class="toggle-wrapper" fxFlex="50">
             <span class="toggle-text">Transit Insurance: </span>
-            <mat-slide-toggle class="example-margin" name="transit_insurance" [color]="'accent'" [(ngModel)]="new_bookings.transit_insurance"
+            <mat-slide-toggle class="example-margin" (change)="displayInsurance = !displayInsurance" name="transit_insurance" [color]="'accent'" [(ngModel)]="new_bookings.transit_insurance"
               required #transit="ngModel">
             </mat-slide-toggle>
           </div>
+          <mat-form-field fxFlex="40" *ngIf="displayInsurance">
+            <mat-select value="option0" placeholder="select Insurance Type">
+              <mat-option value="option0" disabled>select Insurance</mat-option>
+              <mat-option value="option1">Insurance company-1</mat-option>
+              <mat-option value="option2">Insurance company-2</mat-option>
+              <mat-option value="option3">Insurance company-3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
         </div>
 
         <div fxLayout='row' fxLayout.xs='column'>

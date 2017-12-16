@@ -6,10 +6,23 @@
     .nav-groups{
         display:flex;
         align-items: center;
-        margin-right: 20px;
         .nav-buttons{
             cursor: pointer;
             padding-right: 5px;
         }
     }
+}
+.button-wrapper{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.menu-wrap{
+    position: absolute;
+    top:5px;
+}
+::ng-deep.mat-menu-panel{
+    position: absolute;
+    top: 40px;
+    left: -12px;
 }

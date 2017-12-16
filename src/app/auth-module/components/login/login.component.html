@@ -18,7 +18,10 @@
       <div class="form-grp">
         <mat-form-field class="form-input">
           <mat-icon matPrefix class="mat-prefix">lock</mat-icon>
-          <input matInput placeholder="Password*" type="password" name="password" id="password" [formControl]="password">
+          <input matInput placeholder="Password*" type="password" [type]="hidePassword ? 'text': 'password'" name="password" id="password" [formControl]="password">
+          <button mat-icon-button matSuffix matTooltip="{{hidePassword ? 'Hide Password' : 'Show Password'}}" type="button" (click)="hidePassword = !hidePassword">
+              <mat-icon>{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </button>
         </mat-form-field>
         <div class="error" [hidden]="password.valid || password.untouched">
           <div [hidden]="!password.hasError('required')">

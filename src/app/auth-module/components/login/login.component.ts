@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   returnUrl: string;
   signinLoader = false;
+  hidePassword;
 
   mobile_number = new FormControl('', [
     Validators.required

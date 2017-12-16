@@ -1,0 +1,76 @@
+<mat-card class="add-expense-wrapper" fxFlex fxFlexAlign="start">
+    <mat-card-title style="position:relative;">Add New Expense
+      <span style="position:absolute;right:15px;cursor: pointer;" (click)="closeExpenseScreen()">
+          <i class="material-icons">close</i>
+      </span>
+    </mat-card-title>
+    <form #addNew="ngForm" (ngSubmit)="onSubmit1(addNew)" fxLayout fxLayout.xs="column" fxLayoutWrap fxLayoutGap="40px" fxLayoutGap.xs="15px">
+        <!-- <mat-form-field class="example-full-width" fxFlex="calc(100% - 40px)">
+            <input matInput name="registration_number" [(ngModel)]="addExpense.registration_number" placeholder="Vehicle Registration Number" required #registration_number="ngModel">
+        </mat-form-field> -->
+        <mat-form-field class="example-full-width" fxFlex="calc(100% - 40px)">
+            <input matInput name="driver_name" placeholder="Driver Name :"  required [(ngModel)]="addExpense.driver_name" #engine_number="ngModel">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="advance_num" type="number" placeholder="Advance Amount :"  required [(ngModel)]="addExpense.advance_num" #engine_number="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(25% - 40px)">
+            <input matInput name="disel_liter" type="number" placeholder="Diesel Consumed :" required [(ngModel)]="addExpense.disel_liter" #engine_chasis_number="ngModel">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" fxFlex="calc(25% - 40px)">
+            <input matInput name="disel_price" type="number" placeholder="Diesel Price :" required [(ngModel)]="addExpense.disel_price" #engine_chasis_number="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="loading_charging" type="number" placeholder="Loading & UnLoading Charges :" required [(ngModel)]="addExpense.loading_charging" #vehicle_model="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="driver_comission"  type="number" placeholder="Driver Commission :" required [(ngModel)]="addExpense.driver_comission" #vehicle_year="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="cleaner_comission" type="number" placeholder="Cleaner Commission :" required [(ngModel)]="addExpense.cleaner_comission" #vehicleTonnage="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+             <input matInput name="toll_charge" type="number" placeholder="Toll Charges :" required [(ngModel)]="addExpense.toll_charge" #vehicle_model="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calc(33.3% - 40px)">
+            <input matInput name="rto_charge" type="number" placeholder="RTO & PC Charges :" required [(ngModel)]="addExpense.rto_charge" #vehicle_year="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" fxFlex="calccalc(50% - 40px)">
+                <input matInput name="others" placeholder="Others :" required [(ngModel)]="addExpense.others" #vehicle_year="ngModel">
+        </mat-form-field>
+    
+<!-- 
+        <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="fc_expiry_date" required [matDatepicker]="fc_expiry_date" [(ngModel)]="addExpense.fc_expiry_date" placeholder="FC Expiry Date">
+            <mat-datepicker-toggle matSuffix [for]="fc_expiry_date"></mat-datepicker-toggle>
+            <mat-datepicker #fc_expiry_date></mat-datepicker>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field class="example-full-width" fxFlex="calc(50% - 40px)">
+            <input matInput name="fc_expiry_date" required [matDatepicker]="insurance_expiry_date" [(ngModel)]="addVehicle.insurance_expiry_date" placeholder="Insurance Expiry Date">
+            <mat-datepicker-toggle matSuffix [for]="insurance_expiry_date"></mat-datepicker-toggle>
+            <mat-datepicker #insurance_expiry_date></mat-datepicker>
+        </mat-form-field> -->
+
+        <!-- <section class="material-radio-grp" fxFlex="calc(100% - 40px)">
+            <label class="example-margin">Vehcile Documents:</label>
+            <mat-radio-group [(ngModel)]="addVehicle.vehicle_docs" name="vehicle_docs" #vehicle_docs="ngModel">
+              <mat-radio-button class="example-margin" value="true">Available</mat-radio-button>
+              <mat-radio-button class="example-margin" value="false">Not Available</mat-radio-button>
+            </mat-radio-group>
+        </section> -->
+        
+        <mat-card-actions class="material-btn-grp" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+            <button mat-button class="reset-btn" (click)="onReset(addNew)">Reset</button>
+            <button mat-raised-button class="submit-btn" color="primary" [disabled]='!addNew.valid'>Submit</button>
+        </mat-card-actions>
+        
+    </form>
+</mat-card>

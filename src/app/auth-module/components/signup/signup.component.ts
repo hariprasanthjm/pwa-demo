@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 
 import { UserService } from '../../../shared/services/user.services';
 
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
 
   constructor(private router: Router,
     private userService: UserService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.initForm();
@@ -49,8 +51,16 @@ export class SignupComponent implements OnInit {
     this.userService.create(values)
       .subscribe(
       data => {
-        this.router.navigate(['/auth/login']);
-        alert('Successfully Created');
+        /* this.snackBar.open('Registration Successfully Completed', 'Close', {
+          duration: 2500,
+          verticalPosition: 'top'
+        }); */
+            const config = new MatSnackBarConfig();
+            const snackBarRef = this.snackBar.open('Registration Successfully Completed', 'Ok', { horizontalPosition: 'center'});
+            snackBarRef.afterDismissed().subscribe(null, null, () => {
+              this.router.navigate(['/auth/login']);
+            });
+        // this.router.navigate(['/auth/login']);
       },
       error => {
         console.log('Error Inside Signup Component', error);
@@ -73,7 +83,7 @@ export class SignupComponent implements OnInit {
     if (type === 'customer') {
       user = this.createUserData(value.customer_name, value.customer_address, value.customer_email,
       value.customer_mobile_no, value.customer_password, 1);
-    }else {
+    } else {
       user = this.createUserData(value.transporter_name, value.transporter_address, value.transporter_email,
          value.transporter_mobile_no, value.transporter_password, 2);
     }

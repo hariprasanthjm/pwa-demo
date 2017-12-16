@@ -30,6 +30,7 @@ export class NewBookingComponent implements OnInit {
   vehicleFeeds: any = vehicleTypes;
   vehicleGoods: any = vehicleGoodsTypes;
   minDate = new Date();
+  displayInsurance = false;
 
   constructor(private fb: FormBuilder,
               private datePipe: DatePipe,

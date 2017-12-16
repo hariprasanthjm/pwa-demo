@@ -40,6 +40,7 @@ export class BookingComponent implements OnInit {
   receivedEvt(evt) {
     this.masterBookingData.push(evt);
     this.addNewBooking = false;
+    this.selectBooking(evt.booking_status);
   }
 
 }

@@ -1,0 +1,32 @@
+.mat-card-header{
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    .vehicle-icon{
+        background: #0e6caa;
+        padding: 10px;
+        border-radius: 50%;
+        i{
+            font-size: 48px;
+            color:#ffffff;
+        }
+    }
+    .vehicle-header-text{
+        color: #888888;
+        padding-left: 30px;
+    }
+}
+mat-card-content{
+    padding: 20px;
+    .vehicle-content{
+        .vehicle-description {
+            font-size: 14px;
+            .vehicle-placeholder{
+                color:#888888;
+            }
+            .vehicle-text{
+                padding-left:10px; 
+            }
+        }
+    }
+}

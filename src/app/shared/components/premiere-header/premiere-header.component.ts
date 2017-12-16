@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./premiere-header.component.scss']
 })
 export class PremiereHeaderComponent implements OnInit {
-
+  userName: string;
   constructor() { }
 
   ngOnInit() {
+    const userDetails = JSON.parse(localStorage.getItem('currentUser'));
+    this.userName = userDetails['fullname'];
   }
 
 }

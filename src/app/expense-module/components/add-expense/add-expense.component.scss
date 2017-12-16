@@ -1,5 +1,4 @@
-.add-vehicle-wrapper{
-    margin-bottom:30px;
+.add-expense-wrapper{
     mat-card-title{
         padding-left:40px;
     }
@@ -31,6 +30,17 @@
                 width: 13%;
                 margin-right: 40px;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) { 
+    .add-expense-wrapper{
+        mat-card-title{
+            padding-left: 3px !important;
+        }
+        form{
+            padding: 3px !important;
         }
     }
 }

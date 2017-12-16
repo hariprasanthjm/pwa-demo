@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AddVehicleComponent implements OnInit {
   addVehicle: any = {};
   @Output() closeAddVehicle: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.createForm();
@@ -39,6 +40,11 @@ export class AddVehicleComponent implements OnInit {
   onSubmit(addNew: NgForm) {
     console.log(addNew.value);  // { first: '', last: '' }
     console.log(addNew.valid);
+    this.snackBar.open('New Vehicle Added Successfully', 'Ok', {
+      duration: 2500,
+      verticalPosition: 'top'
+    });
+    this.closeAddVehicle.emit(true);
     // addNew.form.reset();
   }
   onReset(addNew: NgForm) {

@@ -1,0 +1,58 @@
+<div class="expense-create-container" *ngIf='showAddVehicle1'>
+    <app-add-expense (closeAddExpense)="detectCloseChanges1($event)"></app-add-expense>
+</div>
+<div class="expense-container" *ngIf='!showAddVehicle1'>
+
+        <div class="add-new-top" fxHide.sm  fxHide.md fxHide.lg fxHide.xl>
+                <span class="addVehicle-icon" (click)="createNewVehicle1()">
+                        <i class="material-icons">add_circle_outline</i>
+                        Add Expense
+                    </span>
+        </div>
+    <!-- <div> -->
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="25px" fxLayoutGap.xs="10px">
+            <div fxFlex="35" fxFlex.xs="100" >
+                <div class="tab-wrap">
+                    <mat-tab-group (selectedTabChange)="detectTabChanges($event)">
+            
+                        <mat-tab label="MY EXPENSES">
+                            <div fxLayout="column" fxLayoutGap="25px" style="padding-top: 45px;">
+                                <mat-card class="vehicle-card-wrapper" *ngFor="let vehicle of myvehiclesList1;let i = index">
+                                    <div class="vehicles-card-header">
+                                        <span>{{ i + 1 }}</span>
+                                        <span>{{ vehicle.driver_name }}</span>
+                                    </div>
+                                    <div fxLayout="row" class="vehicle-card-content">
+                                        <span fxFlex="10">
+                                            <i class="material-icons">account_circle</i>
+                                        </span>
+                                        <span fxFlex="55">
+                                            <div fxLayout="column" style="padding-left: 15px;font-size: 14px; " >
+                                                <div><span style="color:#cccccc;">Advance : </span><span>{{ vehicle.licence_number }}</span></div>
+                                                <div><span style="color:#cccccc;">Diesel Consumed : </span><span>{{ vehicle.mobile_number }}</span></div>
+                                            </div>
+                                            
+                                        </span>
+                                      
+                                    </div>
+                                </mat-card>
+
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+            <div fxFlex="65"  fxFlex.xs="100" class="vehicle-detail-wrapper">
+                <div fxLayout="column">
+                    <mat-card fxHide.xs style="padding: 12px 20px 12px 12px;margin-bottom:45px;text-align: right;background:none;box-shadow:none;">
+                        <span class="addVehicle-icon" (click)="createNewVehicle1()">
+                            <i class="material-icons">add_circle_outline</i>
+                            Add Expense
+                        </span>
+                    </mat-card>
+                   <app-expense-detail></app-expense-detail>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
