@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { vehicleDatas } from '../../../shared/models/vehicles';
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-vehicle',
@@ -13,17 +14,11 @@ export class VehicleComponent implements OnInit {
   public myvehiclesList = [];
   public width;
 
-  constructor( ngZone: NgZone ) {
-    window.onresize = (e) => {
-        ngZone.run(() => {
-            this.width = window.innerWidth;
-            // console.log(this.width, 'width');
-        });
-    };
-   }
+  constructor(private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.myvehiclesList = vehicleDatas;
+    this.loader();
   }
   detectCloseChanges(evt) {
     if (evt) {
@@ -35,6 +30,12 @@ export class VehicleComponent implements OnInit {
   }
   detectTabChanges(evt) {
     console.log(evt);
+  }
+  loader() {
+    this.loaderService.display(true);
+    setTimeout(() => {
+      this.loaderService.display(false);
+    }, 1500);
   }
 
 }

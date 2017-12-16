@@ -40,7 +40,7 @@
     background: #0e83cd;
     position: fixed;
     left: auto;
-    top: 0;
+    top: 45px;
     left: 0;
     bottom: 0;
     width: 20%;
@@ -68,5 +68,27 @@
     cursor: pointer;
     i {
         font-size: 27px;
+    }
+}
+
+
+/* Absolute Center Spinner */
+
+.spinner-wraper{
+    position: absolute;
+    top: calc(100% - 60%);
+    left: calc(100% - 50%);
+    z-index: 9999;
+    .spinner-inline {
+        display: inline-block;
+        background: #0e83cd;
+        border-radius: 50%;
+        padding: 10px;
+    }
+}
+
+/deep/ mat-progress-spinner{
+    circle{
+        stroke: #ffffff !important;
     }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoaderService } from '../../../shared/services/loader.service';
 import {MatSnackBar} from '@angular/material';
 
 import { AuthenticationService } from '../../../shared/services/authentication.service';
@@ -34,14 +33,12 @@ export class LoginComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private authenticationService: AuthenticationService,
-              private loaderService: LoaderService,
               private snackBar: MatSnackBar
             ) { }
 
   ngOnInit() {
     this.authenticationService.logout();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/vehicles';
-    this.loader();
   }
 
   login () {
@@ -64,11 +61,4 @@ export class LoginComponent implements OnInit {
           this.signinLoader = false;
         });
   }
-  private loader() {
-    this.loaderService.display(true);
-    setTimeout(() => {
-      this.loaderService.display(false);
-    }, 2000);
-  }
-
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { expenseDatas } from '../../../shared/models/expense';
 import { expenseDatas1 } from '../../../shared/models/expense';
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-expense',
@@ -15,18 +16,20 @@ export class ExpenseComponent implements OnInit {
   public myvehiclesList1 = [];
   public width;
 
-  constructor( ngZone: NgZone ) {
+  /* constructor( ngZone: NgZone ) {
     window.onresize = (e) => {
         ngZone.run(() => {
             this.width = window.innerWidth;
             // console.log(this.width, 'width');
         });
     };
-   }
+   } */
+  constructor(private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.myvehiclesList = expenseDatas;
     this.myvehiclesList1 = expenseDatas1;
+    this.loader();
   }
   detectCloseChanges1(evt) {
     if (evt) {
@@ -38,6 +41,12 @@ export class ExpenseComponent implements OnInit {
   }
   detectTabChanges(evt) {
     console.log(evt);
+  }
+  loader() {
+    this.loaderService.display(true);
+    setTimeout(() => {
+      this.loaderService.display(false);
+    }, 1500);
   }
 
 }

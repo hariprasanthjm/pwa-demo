@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoredBookingDatas } from '../../../shared/models/booking';
-
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-booking',
@@ -14,10 +14,11 @@ export class BookingComponent implements OnInit {
   pastBooking = false;
   activeBooking =  false;
   savedBooking = false;
-  constructor() { }
+  constructor(private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.selectBooking('active');
+    this.loader();
   }
 
   selectBooking(type): void {
@@ -41,6 +42,13 @@ export class BookingComponent implements OnInit {
     this.masterBookingData.push(evt);
     this.addNewBooking = false;
     this.selectBooking(evt.booking_status);
+  }
+
+  loader() {
+    this.loaderService.display(true);
+    setTimeout(() => {
+      this.loaderService.display(false);
+    }, 1500);
   }
 
 }

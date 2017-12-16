@@ -1,4 +1,5 @@
 import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,14 @@ import { Component, OnInit, trigger, state, style, transition, animate } from '@
 })
 export class HomeComponent implements OnInit {
   menuState = 'out';
+  showLoader = false;
 
-  constructor() { }
+  constructor(private loaderService: LoaderService) { }
 
   ngOnInit() {
-  }
-  toggleMenu() {
-    this.menuState = this.menuState === 'out' ? 'in' : 'out';
+    this.loaderService.status.subscribe((val: boolean) => {
+      this.showLoader = val;
+    });
   }
 
 }
