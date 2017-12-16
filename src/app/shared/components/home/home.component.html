@@ -1,5 +1,5 @@
 <div class="appHeader">
-  <app-premiere-header></app-premiere-header>
+  <app-premiere-header (notificationClick)="notification_state = 'notification_in'"></app-premiere-header>
 </div>
 <div fxLayout="row" class="pre-container">
   <div fxFlex="12" fxFlex.sm="8" fxFlex.md="8" fxHide.xs class="pre-sidenav">
@@ -14,13 +14,21 @@
       </div>
     </router-outlet>
   </div>
+
   <!-- <div class="bottom-nav" fxHide.sm  fxHide.md fxHide.lg fxHide.xl><app-navigation></app-navigation></div> -->
   <span class="mobile-hambutton" (click)="menuState = 'in'" fxHide.sm fxHide.md fxHide.lg fxHide.xl>
     <i class="material-icons">menu</i>
   </span>
+
   <div class="transparent-layer" (click)="menuState = 'out'" *ngIf="menuState === 'in'? true: false" fxHide.sm fxHide.md fxHide.lg
     fxHide.xl></div>
-  <div [@slideInOut]="menuState" class="mobile-sideNav" fxHide.sm fxHide.md fxHide.lg fxHide.xl>
+  <div [@sideNavAnimation]="menuState" class="mobile-sideNav" fxHide.sm fxHide.md fxHide.lg fxHide.xl>
     <app-navigation></app-navigation>
   </div>
+
+  <div class="transparent-layer1" (click)="notification_state = 'notification_out'" *ngIf="notification_state === 'notification_in'? true: false"></div>
+  <div [@notificationAnimation]="notification_state" class="notification-sideNav">
+    <app-notification></app-notification>
+  </div>
+
 </div>

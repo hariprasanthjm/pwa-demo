@@ -12,7 +12,8 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { PremiereHeaderComponent } from './shared/components/premiere-header/premiere-header.component';
-import {CustomMaterialModule} from './shared/custom-material.module';
+import { NotificationComponent } from './shared/components/notification/notification.component';
+import { CustomMaterialModule } from './shared/custom-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoaderService } from './shared/services/loader.service';
 
@@ -43,7 +44,8 @@ import 'rxjs/add/observable/of';
     AppComponent,
     NavigationComponent,
     PremiereHeaderComponent,
-    HomeComponent
+    HomeComponent,
+    NotificationComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

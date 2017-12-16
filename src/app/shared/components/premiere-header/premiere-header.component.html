@@ -1,12 +1,13 @@
 <mat-card class="headerTopLayer" fxLayout="row" fxLayoutAlign="end center">
     <!-- <div class="appLogo" [ngStyle]="{'background-image': 'url(/assets/images/logo.png)'}"></div> -->
     <div class="nav-groups">
-        <!-- <button mat-icon-button class="nav-buttons">
-        <mat-icon>search</mat-icon>
-    </button> -->
-        <button mat-icon-button class="nav-buttons">
-            <mat-icon>notifications</mat-icon>
-        </button>
+        <span class="notification-btn-wrap" (click)="notificationClick.emit(true)">
+            <span class="notification-count">3</span>
+            <button mat-icon-button class="nav-buttons">
+                <mat-icon>notifications</mat-icon>
+            </button>
+        </span>
+
         <span [matMenuTriggerFor]="appMenu" class="button-wrapper">
             <button mat-icon-button class="nav-buttons">
                 <mat-icon style="font-size: 30px;">account_circle</mat-icon>
@@ -22,5 +23,6 @@
                 <mat-icon>power_settings_new</mat-icon>
             </button>
         </mat-menu>
+
     </div>
 </mat-card>

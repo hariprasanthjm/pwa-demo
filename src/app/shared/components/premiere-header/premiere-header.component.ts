@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-premiere-header',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PremiereHeaderComponent implements OnInit {
   userName: string;
+  @Output() notificationClick: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,14 @@
+.notification-header{
+    font-size: 20px;
+    border-bottom: 1px solid #cccccc;
+}
+mat-list-item{
+    .notification-icon{
+        color: #999999;
+    }
+    .notification-headline{
+        color: #0e6caa;
+        font-size: 17px;
+        padding-bottom: 5px;
+    }
+}

@@ -48,7 +48,18 @@
     z-index: 666;
 }
 
-.transparent-layer {
+.notification-sideNav {
+    position: fixed;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    z-index: 666;
+    background: #ffffff;
+}
+
+.transparent-layer, .transparent-layer1 {
     width: 100%;
     height: 100%;
     top: 0;
@@ -58,6 +69,7 @@
     z-index: 600;
     background: transparent;
     position: fixed;
+    background: rgba(0, 0, 0, 0.32);
 }
 
 .mobile-hambutton {
@@ -90,5 +102,15 @@
 /deep/ mat-progress-spinner{
     circle{
         stroke: #ffffff !important;
+    }
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+  @media only screen and (max-width: #{$tablet-width}) {
+    /* For mobile phones: */
+    .notification-sideNav {
+        width: 75% !important;
     }
 }

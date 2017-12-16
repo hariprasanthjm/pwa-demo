@@ -1,28 +1,44 @@
-.headerTopLayer{
+.headerTopLayer {
     height: 45px;
     padding: 0 10px;
     background: #0E6CAA;
     color: #ffffff;
-    .nav-groups{
-        display:flex;
+    .nav-groups {
+        display: flex;
         align-items: center;
-        .nav-buttons{
+        .nav-buttons {
             cursor: pointer;
             padding-right: 5px;
         }
     }
 }
-.button-wrapper{
+
+.button-wrapper {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
-.menu-wrap{
+
+.menu-wrap {
     position: absolute;
-    top:5px;
+    top: 5px;
 }
-::ng-deep.mat-menu-panel{
+
+::ng-deep.mat-menu-panel {
     position: absolute;
     top: 40px;
     left: -12px;
+}
+
+.notification-btn-wrap {
+    position: relative;
+    .notification-count {
+        position: absolute;
+        background: #fe9600;
+        padding: 0px 4px;
+        right: 3px;
+        top: 23px;
+        z-index: 1;
+        font-size: 13px;
+    }
 }
