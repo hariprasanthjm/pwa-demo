@@ -4,6 +4,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 // adding plugins
 import { HomeComponent } from './shared/components/home/home.component';
@@ -51,7 +53,8 @@ import 'rxjs/add/observable/of';
     HttpModule,
     ReactiveFormsModule,
     CustomMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : []
   ],
   providers: [
     LoaderService,

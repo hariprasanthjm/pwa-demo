@@ -14,32 +14,17 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="msapplication-starturl" content="/">
   <meta name="theme-color" content="#0e6caa">
+  <style>
+    #loading{display:inline-block;width:50px;height:50px;border:6px solid rgba(103,58,183,.3);border-radius:50%;border-top-color:#0e6caa;;animation:spin 1s ease-in-out infinite;position:fixed;left:calc(50% - 25px);top:calc(50% - 25px)}@keyframes spin{to{transform:rotate(360deg)}}
+  </style>
 
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-  <app-root></app-root>
-
-  <div class="loading">
-    <h1>Loading Logy....</h1>
-  </div>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-
-        .then((registration) => {
-
-          console.log('SW registered');
-        })
-        .catch((err) => {
-
-          console.log('SW error', err);
-        });
-    }
-  </script>
-
+  <app-root>
+    <div id="loading"></div>
+  </app-root>
 </body>
 
 </html> 
