@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pwa": "ng build --prod && sw-precache --root=dist --config=precache-config.js",
-    "pwa-build": "ng build --prod --base-href https://hariprasanthjm.github.io/pwa-demo/ && sw-precache --root=dist --config=precache-config.js"
+    "pwa": "ng build --prod --base-href '/pwa-demo/'"
   },
   "private": true,
   "dependencies": {
